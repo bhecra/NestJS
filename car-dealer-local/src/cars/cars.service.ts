@@ -5,26 +5,26 @@ import { ICar } from './interfaces/car.interface';
 @Injectable()
 export class CarsService {
   private cars = [
-    {
-      id: uuid(),
-      brand: 'Toyota',
-      model: 'Corolla',
-    },
-    {
-      id: uuid(),
-      brand: 'Honda',
-      model: 'Civic',
-    },
-    {
-      id: uuid(),
-      brand: 'Jeep',
-      model: 'Cherokee',
-    },
-    {
-      id: uuid(),
-      brand: 'Mazda',
-      model: 'CX-30',
-    },
+    // {
+    //   id: uuid(),
+    //   brand: 'Toyota',
+    //   model: 'Corolla',
+    // },
+    // {
+    //   id: uuid(),
+    //   brand: 'Honda',
+    //   model: 'Civic',
+    // },
+    // {
+    //   id: uuid(),
+    //   brand: 'Jeep',
+    //   model: 'Cherokee',
+    // },
+    // {
+    //   id: uuid(),
+    //   brand: 'Mazda',
+    //   model: 'CX-30',
+    // },
   ];
 
   getAllCars() {

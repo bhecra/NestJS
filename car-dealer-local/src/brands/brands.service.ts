@@ -7,12 +7,12 @@ import { v4 as uuid } from 'uuid';
 @Injectable()
 export class BrandsService {
   private brands: Brand[] = [
-    {
-      id: uuid(),
-      name: 'Mazda',
-      createAt: new Date().getTime(),
-      updateAt: new Date().getTime(),
-    },
+    // {
+    //   id: uuid(),
+    //   name: 'Mazda',
+    //   createAt: new Date().getTime(),
+    //   updateAt: new Date().getTime(),
+    // },
   ];
 
   create(createBrandDto: CreateBrandDto) {
