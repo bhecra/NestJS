@@ -29,7 +29,7 @@ export class CarsService {
   getAllCars() {
     return this.cars;
   }
-  getOneById(id: string) {
+  findOne(id: string) {
     const car = this.cars.find((car) => car.id == id);
 
     if (!car) {
@@ -45,7 +45,7 @@ export class CarsService {
     return newCar;
   }
   updateCar(id: string, updateCarDto: UpdateCarDto) {
-    let carDb = this.getOneById(id);
+    let carDb = this.findOne(id);
     this.cars = this.cars.map((car) => {
       if (car.id === id) {
         carDb = {

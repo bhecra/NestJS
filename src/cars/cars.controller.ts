@@ -23,7 +23,7 @@ export class CarsController {
 
   @Get(':id')
   getCarById(@Param('id', ParseUUIDPipe) id: string): ICar {
-    return this.carsService.getOneById(id);
+    return this.carsService.findOne(id);
   }
   @Post()
   createCar(@Body() body: CreateCarDto) {
