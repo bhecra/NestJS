@@ -3,7 +3,7 @@ import { Product } from './product.entity';
 
 @Entity()
 export class ProductImage {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('increment')
   id: string;
 
   @Column('text')
