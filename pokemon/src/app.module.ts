@@ -33,6 +33,6 @@ export class AppModule {
    *
    */
   constructor() {
-    console.log(process.env);
+    console.log({ mongoooooo: process.env.MONGODB });
   }
 }
