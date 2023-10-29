@@ -16,14 +16,26 @@ export class PokemonService {
     private readonly pokemonModel: Model<Pokemon>,
   ) {}
 
-  async create(createPokemonDto: CreatePokemonDto) {
-    createPokemonDto.name = createPokemonDto.name.toLocaleLowerCase();
+  async create(createPokemonDto: CreatePokemonDto | CreatePokemonDto[]) {
+    if (Array.isArray(createPokemonDto)) {
+      createPokemonDto.forEach((item) => {
+        item.name = item.name.toLocaleLowerCase();
+      });
 
-    try {
-      const pokemon = await this.pokemonModel.create(createPokemonDto);
-      return pokemon;
-    } catch (error) {
-      this.handleExceptions(error);
+      try {
+        const pokemon = await this.pokemonModel.insertMany(createPokemonDto);
+        return pokemon;
+      } catch (error) {
+        this.handleExceptions(error);
+      }
+    } else {
+      createPokemonDto.name = createPokemonDto.name.toLocaleLowerCase();
+      try {
+        const pokemon = await this.pokemonModel.create(createPokemonDto);
+        return pokemon;
+      } catch (error) {
+        this.handleExceptions(error);
+      }
     }
   }
 
@@ -89,6 +101,8 @@ export class PokemonService {
   }
 
   private handleExceptions(error: any) {
+    console.log(error);
+
     if (error.code === 11000) {
       throw new BadRequestException(
         `Pokemon already exist in db ${JSON.stringify(error.keyValue)}`,
