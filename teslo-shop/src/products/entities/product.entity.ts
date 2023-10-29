@@ -44,6 +44,7 @@ export class Product {
     type: 'text',
     array: true,
     nullable: true,
+    default: [],
   })
   tags: string[];
 

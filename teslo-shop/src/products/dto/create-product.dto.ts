@@ -36,6 +36,7 @@ export class CreateProductDto {
   sizes: string[];
 
   @IsString({ each: true })
+  @IsOptional()
   @IsArray()
   tags: string[];
 
