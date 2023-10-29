@@ -86,6 +86,14 @@ $ npm run test:cov
 * Nest
 * Auth0
 
+## Production Build
+###### 1. Crear archivo ```.env.prod``` y llenarlo
+
+###### 2. Crear la nueva imagen
+```bash
+$ docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
