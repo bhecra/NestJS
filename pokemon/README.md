@@ -24,27 +24,36 @@
 
 ## Ejecutar en desarrollo
 
-1. Clonar repositorio
-2. Ejecutar
+###### 1. Clonar repositorio
+###### 2. Ejecutar
 
 ```bash
 $ npm install
 ```
 
-3. Tener Nest CLI instalado
+###### 3. Tener Nest CLI instalado
 ```bash
 $ npm i -g @nestjs/cli
 ```
 
-4. Levantar la bd
+###### 4. Levantar la bd
 ```bash
 $ docker-compose up -d
 ```
 
-## Stack Usado
-* Mongo DB
-* Nest
-* Auth0
+###### 5. Clonar archivo ```.env.template``` y renombrar la copia a ```.env```
+###### 6. Llenar las variables de entrono definidas en  ```.env```
+###### 7. Ejecutar la app en dev
+```bash
+# watch mode
+$ npm run start:dev
+```
+
+###### 8. Reconstruir la bd con la semilla
+
+```
+http://localhost:3000/api/v2/seed
+```
 
 ## Running the app
 
@@ -71,6 +80,11 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Stack Usado
+* Mongo DB
+* Nest
+* Auth0
 
 ## License
 
