@@ -73,8 +73,12 @@ export class PokemonService {
     return { ...pokemon.toJSON(), ...updatePokemonDto };
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} pokemon`;
+  async remove(param: string) {
+    const pokemon: Pokemon = await this.findOne(param);
+
+    if (pokemon) {
+      await pokemon.deleteOne();
+    }
   }
 
   private handleExceptions(error: any) {
