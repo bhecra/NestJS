@@ -36,7 +36,10 @@ $ npm install
 ```
 ###### 3. Clonar archivo ```.env.template``` y renombrar la copia a ```.env```
 
-###### 4.
+###### 4. Levantar Base de datos
+```bash
+ % docker-compose up -d
+```
 
 ###### 5. Levanta modo desarrollo  
 ```bash
@@ -73,11 +76,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Teslo API
-1. Levantar Base de datos
-```bash
- % docker-compose up -d
-```
+
 
 
 ## Stay in touch
