@@ -9,7 +9,7 @@ import {
 @Entity({ name: 'products' })
 export class Product {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id?: string;
 
   @Column('text', {
     unique: true,

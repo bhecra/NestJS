@@ -1,6 +1,6 @@
 import { IUbitsFilter } from '../utils';
 
-export abstract class Repository<T> {
+export abstract class BaseRepository<T> {
   abstract get(id: string, args?: any): Promise<T>;
 
   abstract set(value: T | T[], args?: any): Promise<any>;
@@ -13,10 +13,7 @@ export abstract class Repository<T> {
 
   abstract search(filter?: IUbitsFilter, args?: any): Promise<T[]>;
 
-  abstract searchPaginator(
-    filter?: IUbitsFilter,
-    args?: any,
-  ): Promise<{ data: T[]; count: number }>;
+  abstract searchPaginator(filter?: IUbitsFilter, args?: any): Promise<T[]>;
 
   abstract inputFormat(data: any, args?: any): T;
 
