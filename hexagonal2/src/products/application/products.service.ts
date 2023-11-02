@@ -1,24 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProductDto } from '../domain/dto/create-product.dto';
-import { UpdateProductDto } from '../domain/dto/update-product.dto';
-import { Product } from '../domain/entities/product.entity';
 import { PaginationDto } from '../../common/domain/dtos/pagination.dto';
-import { ProductRepository } from '../domain/repository/product.repository';
+import { ProductRepository } from '../infrastructure/adapters/product.repository.adapter';
 import { IUbitsFilter } from '../../core/utils';
 import { SimpleRepository } from '../../core/domain/base-simple.repository';
+import { ProductModel } from '../domain/entities/product.model';
 
 @Injectable()
 export class ProductsService {
   constructor(
     @Inject(ProductRepository)
-    private readonly productRepository: SimpleRepository<
-      Product,
-      CreateProductDto,
-      UpdateProductDto
-    >,
+    private readonly productRepository: SimpleRepository<ProductModel>,
   ) {}
 
-  async create(createProductDto: CreateProductDto) {
+  async create(createProductDto: ProductModel) {
     const product = this.productRepository.create(createProductDto);
     return product;
   }
@@ -41,7 +35,7 @@ export class ProductsService {
     return this.productRepository.get(id);
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
+  update(id: number, updateProductDto: Partial<ProductModel>) {
     const args = { id: `${id}` };
     return this.productRepository.update(updateProductDto, args);
   }

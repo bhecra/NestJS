@@ -5,9 +5,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { ProductModel } from './product.model';
 
 @Entity({ name: 'products' })
-export class Product {
+export class ProductEntity implements ProductModel {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 

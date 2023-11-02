@@ -8,10 +8,10 @@ import {
   Delete,
   Query,
 } from '@nestjs/common';
-import { ProductsService } from '../application/products.service';
-import { CreateProductDto } from '../domain/dto/create-product.dto';
-import { UpdateProductDto } from '../domain/dto/update-product.dto';
-import { PaginationDto } from '../../common/domain/dtos/pagination.dto';
+import { ProductsService } from '../../application/products.service';
+import { CreateProductDto } from './dto/create-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
+import { PaginationDto } from '../../../common/domain/dtos/pagination.dto';
 
 @Controller('products')
 export class ProductsController {

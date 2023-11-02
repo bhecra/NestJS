@@ -8,25 +8,22 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { validate as isUUID } from 'uuid';
 import { DataSource, Repository } from 'typeorm';
-import { Product } from '../entities/product.entity';
-import { UpdateProductDto } from '../dto/update-product.dto';
-import { CreateProductDto } from '../dto/create-product.dto';
+import { ProductEntity } from '../../domain/entities/product.entity';
 import { IUbitsFilter } from '../../../core/utils';
 import { SimpleRepository } from '../../../core/domain/base-simple.repository';
+import { ProductModel } from '../../../products/domain/entities/product.model';
 
 @Injectable()
-export class ProductRepository
-  implements SimpleRepository<Product, CreateProductDto, UpdateProductDto>
-{
+export class ProductRepository implements SimpleRepository<ProductModel> {
   private readonly logger = new Logger('ProductsService');
   constructor(
-    @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>,
+    @InjectRepository(ProductEntity)
+    private readonly productRepository: Repository<ProductEntity>,
     private readonly dataSource: DataSource,
   ) {}
 
-  async get(id: string): Promise<Product> {
-    let product: Product;
+  async get(id: string): Promise<ProductEntity> {
+    let product: ProductEntity;
 
     if (isUUID(id)) {
       product = await this.productRepository.findOneBy({ id });
@@ -44,7 +41,7 @@ export class ProductRepository
 
     return product;
   }
-  async search(filter?: IUbitsFilter): Promise<Product[]> {
+  async search(filter?: IUbitsFilter): Promise<ProductEntity[]> {
     const { pageFrom, pageTo } = filter;
 
     const offset = pageFrom;
@@ -57,7 +54,7 @@ export class ProductRepository
     return products;
   }
 
-  async create(value: CreateProductDto): Promise<any> {
+  async create(value: ProductModel): Promise<any> {
     try {
       const product = this.productRepository.create(value);
       await this.productRepository.save(product);
@@ -68,7 +65,7 @@ export class ProductRepository
 
     throw new Error('Method not implemented.');
   }
-  async update(value: UpdateProductDto, args?: any): Promise<any> {
+  async update(value: ProductModel, args?: any): Promise<any> {
     const { id } = args;
 
     const product = await this.productRepository.preload({

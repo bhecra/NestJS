@@ -8,8 +8,9 @@ import {
   IsString,
   MinLength,
 } from 'class-validator';
+import { ProductModel } from '../../../domain/entities/product.model';
 
-export class CreateProductDto {
+export class CreateProductDto implements ProductModel {
   @IsString()
   @MinLength(1)
   title: string;
