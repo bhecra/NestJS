@@ -10,13 +10,11 @@ import { validate as isUUID } from 'uuid';
 import { DataSource, Repository } from 'typeorm';
 import { ProductEntity } from '../pg-db/entities/product.entity';
 import { IUbitsFilter } from '../../../core/utils';
-import { SimpleRepository } from '../../../core/domain/base-simple.repository';
 import { ProductModel } from '../../../products/domain/entities/product.model';
+import { ProductRepository } from '../../domain/repository/product.repository';
 
 @Injectable()
-export class ProductRepositoryAdapter
-  implements SimpleRepository<ProductModel>
-{
+export class ProductRepositoryAdapter implements ProductRepository {
   private readonly logger = new Logger('ProductsService');
   constructor(
     @InjectRepository(ProductEntity)
