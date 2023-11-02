@@ -5,14 +5,14 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { Product } from '../../../products/entities/product.entity';
-import { IUbitsFilter } from 'src/core/utils';
 import { InjectRepository } from '@nestjs/typeorm';
+import { validate as isUUID } from 'uuid';
 import { DataSource, Repository } from 'typeorm';
-import { SimpleRepository } from '../../../core/domain/base-simple.repository';
+import { Product } from '../entities/product.entity';
 import { UpdateProductDto } from '../dto/update-product.dto';
 import { CreateProductDto } from '../dto/create-product.dto';
-import { validate as isUUID } from 'uuid';
+import { IUbitsFilter } from '../../../core/utils';
+import { SimpleRepository } from '../../../core/domain/base-simple.repository';
 
 @Injectable()
 export class ProductRepository
@@ -100,6 +100,7 @@ export class ProductRepository
     const product = await this.get(value);
     await this.productRepository.remove(product);
   }
+
   private handleDBExceptions(error: any) {
     if (error.code === '23505') {
       throw new BadRequestException(error?.detail);

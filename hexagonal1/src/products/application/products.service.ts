@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProductDto } from './domain/dto/create-product.dto';
-import { UpdateProductDto } from './domain/dto/update-product.dto';
-import { Product } from './entities/product.entity';
-import { PaginationDto } from '../common/dtos/pagination.dto';
-import { ProductRepository } from './domain/repository/product.repository';
-import { IUbitsFilter } from '../core/utils';
-import { SimpleRepository } from '../core/domain/base-simple.repository';
+import { CreateProductDto } from '../domain/dto/create-product.dto';
+import { UpdateProductDto } from '../domain/dto/update-product.dto';
+import { Product } from '../domain/entities/product.entity';
+import { PaginationDto } from '../../common/dtos/pagination.dto';
+import { ProductRepository } from '../domain/repository/product.repository';
+import { IUbitsFilter } from '../../core/utils';
+import { SimpleRepository } from '../../core/domain/base-simple.repository';
 
 @Injectable()
 export class ProductsService {
