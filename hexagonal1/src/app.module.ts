@@ -1,18 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { CommonModule } from './common/common.module';
-import { CONFIG_DATABASE } from './common/infrastructure/config-database';
+import { ConfigurationModule } from './configuration/configuration.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    CONFIG_DATABASE(),
-    ProductsModule,
-    CommonModule,
-  ],
+  imports: [ConfigurationModule, CommonModule, ProductsModule],
   controllers: [AppController],
   providers: [AppService],
 })
