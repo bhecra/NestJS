@@ -5,10 +5,9 @@ import { ProductsModule } from './products/products.module';
 import { CommonModule } from './common/common.module';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { CoreModule } from './core/core.module';
-import { InfraestructureModule } from './infraestructure/infraestructure.module';
 
 @Module({
-  imports: [ConfigurationModule, CommonModule, ProductsModule, CoreModule, InfraestructureModule],
+  imports: [ConfigurationModule, CommonModule, ProductsModule, CoreModule],
   controllers: [AppController],
   providers: [AppService],
 })

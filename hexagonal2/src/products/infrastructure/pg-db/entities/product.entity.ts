@@ -5,7 +5,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { ProductModel } from './product.model';
+import { ProductModel } from '../../../domain/entities/product.model';
 
 @Entity({ name: 'products' })
 export class ProductEntity implements ProductModel {

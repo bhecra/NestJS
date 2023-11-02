@@ -8,13 +8,15 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { validate as isUUID } from 'uuid';
 import { DataSource, Repository } from 'typeorm';
-import { ProductEntity } from '../../domain/entities/product.entity';
+import { ProductEntity } from '../pg-db/entities/product.entity';
 import { IUbitsFilter } from '../../../core/utils';
 import { SimpleRepository } from '../../../core/domain/base-simple.repository';
 import { ProductModel } from '../../../products/domain/entities/product.model';
 
 @Injectable()
-export class ProductRepository implements SimpleRepository<ProductModel> {
+export class ProductRepositoryAdapter
+  implements SimpleRepository<ProductModel>
+{
   private readonly logger = new Logger('ProductsService');
   constructor(
     @InjectRepository(ProductEntity)

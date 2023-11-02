@@ -1,14 +1,14 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PaginationDto } from '../../common/domain/dtos/pagination.dto';
-import { ProductRepository } from '../infrastructure/adapters/product.repository.adapter';
-import { IUbitsFilter } from '../../core/utils';
-import { SimpleRepository } from '../../core/domain/base-simple.repository';
-import { ProductModel } from '../domain/entities/product.model';
+import { PaginationDto } from '../../../common/domain/dtos/pagination.dto';
+import { ProductRepositoryAdapter } from '../adapters/product.repository.adapter';
+import { IUbitsFilter } from '../../../core/utils';
+import { SimpleRepository } from '../../../core/domain/base-simple.repository';
+import { ProductModel } from '../../domain/entities/product.model';
 
 @Injectable()
 export class ProductsService {
   constructor(
-    @Inject(ProductRepository)
+    @Inject(ProductRepositoryAdapter)
     private readonly productRepository: SimpleRepository<ProductModel>,
   ) {}
 
