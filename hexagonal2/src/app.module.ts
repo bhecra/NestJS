@@ -5,9 +5,16 @@ import { ProductsModule } from './products/products.module';
 import { CommonModule } from './common/common.module';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { CoreModule } from './core/core.module';
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
-  imports: [ConfigurationModule, CommonModule, ProductsModule, CoreModule],
+  imports: [
+    ConfigurationModule,
+    CommonModule,
+    ProductsModule,
+    CoreModule,
+    TicketModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
