@@ -1,6 +1,7 @@
 import { TicketDB } from '../adapter/db/ticket-db.repository';
 import { TicketInMemory } from '../adapter/db/ticket-in-memory.repository';
 import { TicketRepository } from './ports/ticket.repository';
+// import { TicketRepository } from './ports/ticket.repository';
 
 enum EnvironmentEnum {
   Mocked = 'mocked',
@@ -18,6 +19,12 @@ export const providerFactory = (providers: Record<string, any>): any => {
   const provider = providers[providerKey];
 
   return provider;
+};
+
+export const ticketServiceProvider = {
+  provide: TicketRepository,
+  useClass:
+    process.env.NODE_ENV === EnvironmentEnum.Mocked ? TicketInMemory : TicketDB,
 };
 
 export const ticketRepository: TicketRepository = providerFactory({

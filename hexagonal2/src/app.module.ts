@@ -6,6 +6,7 @@ import { CommonModule } from './common/common.module';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { CoreModule } from './core/core.module';
 import { TicketModule } from './ticket/ticket.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TicketModule } from './ticket/ticket.module';
     ProductsModule,
     CoreModule,
     TicketModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
