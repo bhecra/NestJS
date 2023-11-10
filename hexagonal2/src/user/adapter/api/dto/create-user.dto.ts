@@ -20,7 +20,7 @@ export class CreateUserDto extends UserModel {
 
   @IsOptional()
   id?: string;
-  
+
   @IsOptional()
   loginsCount: number;
 
@@ -29,11 +29,13 @@ export class CreateUserDto extends UserModel {
 
   @IsString()
   familyName: string;
+
   @IsString()
   givenName: string;
 
   @IsString()
   name: string;
+
   @IsString()
   nickname: string;
 

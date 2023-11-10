@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { PaginationDto } from '../../../common/domain/dtos/pagination.dto';
 import { ProductRepositoryAdapter } from '../adapters/product.repository.adapter';
 import { IUbitsFilter } from '../../../core/utils';
-import { SimpleRepository } from '../../../core/domain/base-simple.repository';
+import { SimpleRepository } from '../../../core/domain/repository/base-simple.repository';
 import { ProductModel } from '../../domain/entities/product.model';
 
 @Injectable()

@@ -1,4 +1,4 @@
-import { IUbitsFilter } from '../utils';
+import { IUbitsFilter } from '../../utils';
 
 export abstract class SimpleRepository<T> {
   abstract get(id?: string, args?: any): Promise<T>;
